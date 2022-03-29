@@ -1,0 +1,26 @@
+{% extends "based.html" %}
+
+{% block content %}
+<h1>Adding food</h1>
+<form method="post">
+    {% csrf_token %}
+<!--    <input type="number" placeholder="Price" class="form-control"><br>-->
+<!--    <input type="text" placeholder="Title" class="form-control"><br>-->
+<!--    <input type="text" placeholder="Description" class="form-control"><br>-->
+<!--    <input type="date" placeholder="Date" class="form-control"><br>-->
+<!--    <button class="btn btn-succsess" type="submit">Add</button>-->
+    {% csrf_token %}
+    {{ form.price }}<br>
+    {{ form.brand }}<br>
+    {{ form.description }}<br>
+    {{ form.date}}
+    {%if error != ''%}
+    <div class="alert alert-danger">
+            {{error}}
+    </div>
+    {%endif%}
+    <br>
+    <button class="btn btn-succsess" type="submit">Add</button>
+</form>
+
+{% endblock %}

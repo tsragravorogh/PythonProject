@@ -1,0 +1,14 @@
+{% extends "based.html" %}
+
+{% block title %}Еда{% endblock %}
+{% block content %}
+    <h1>Еда в наличии:</h1>
+    {% for food in foods %}
+        <div class="alert alert-warning">
+            <h3>{{ food.brand }}</h3>
+            <p>{{ food.price }}</p>
+            <p>{{ food.description }}</p>
+        </div>
+    {% endfor %}
+
+{% endblock %}
