@@ -1,4 +1,4 @@
-from django.forms import ModelForm, TextInput, DateTimeInput, DateInput, Textarea
+from django.forms import ModelForm, TextInput, DateTimeInput, DateInput, FileInput, Textarea, Select
 
 from .models import Food
 
@@ -6,12 +6,15 @@ from .models import Food
 class FoodForm(ModelForm):
     class Meta:
         model = Food
-        fields = ['price', 'brand', 'description', 'date']
+        fields = ['name', 'brand', 'price', 'date', 'description', 'weight', 'type', 'image']
 
         widgets = {
-            'brand': TextInput(attrs={
+            'name': TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Brend',
+                'placeholder': 'Name',
+            }),
+            'brand': Select(attrs={
+                'class': 'form-control',
             }),
             'price': TextInput(attrs={
                 'class': 'form-control',
@@ -25,4 +28,12 @@ class FoodForm(ModelForm):
                 'class': 'form-control',
                 'placeholder': 'Description',
             }),
+            'weight': DateInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Weight',
+            }),
+            'type': Select(attrs={
+                'class': 'form-control',
+            }),
+            'image': FileInput()
         }

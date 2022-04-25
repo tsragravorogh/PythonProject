@@ -1,0 +1,29 @@
+{% extends "based.html" %}
+
+{% block title %}
+    Еда {{ food.name }}
+{% endblock %}
+
+{% block content %}
+<h1>Еда {{ food.name }} {{ food.brand }}</h1>
+
+<!--<div class="alert alert-warning">-->
+
+<div class="col-md-4" style="float: left; margin-top:5px;">
+    <div class="media" style="padding:3px;">
+        {% if food.image %}
+            <img src="{{ food.image.url }}" class="card-img-top" style="float:left;" alt="">
+        {% endif %}
+    </div>
+</div>
+<div class="col-md-8" style="float: left; padding: 5px;">
+    <div style="padding:3px;">
+        <p>{{ food.description|safe }}</p>
+        <p>Тип: {{ food.type }}</p>
+        <p>Цена: {{ food.price }}</p>
+    </div>
+</div>
+
+<!--</div>-->
+
+{% endblock %}

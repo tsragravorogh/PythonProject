@@ -7,7 +7,9 @@
         <div class="alert alert-warning">
             <h3>{{ food.brand }}</h3>
             <p>{{ food.price }}</p>
-            <p>{{ food.description }}</p>
+            <p>{{ food.description|safe }}</p>
+            <p><a href="{% url 'food_details' food.id %}" class="btn btn-warning">Открыть</a>
+            <a href="{% url 'food_delete' food.id %}" class="btn btn-warning">Удалить</a></p>
         </div>
     {% endfor %}
 

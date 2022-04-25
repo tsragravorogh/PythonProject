@@ -10,10 +10,13 @@
 <!--    <input type="date" placeholder="Date" class="form-control"><br>-->
 <!--    <button class="btn btn-succsess" type="submit">Add</button>-->
     {% csrf_token %}
+    {{ form.name }}<br>
     {{ form.price }}<br>
     {{ form.brand }}<br>
     {{ form.description }}<br>
-    {{ form.date}}
+    {{ form.date}}<br>
+    {{ form.weight }}<br>
+    {{ form.type }}<br>
     {%if error != ''%}
     <div class="alert alert-danger">
             {{error}}

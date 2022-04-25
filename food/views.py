@@ -1,8 +1,22 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect
 # Create your views here.
+from django.views.generic import DetailView, DeleteView
+
 from food.models import Food
-from .forms import FoodForm
+from food.forms import FoodForm
+
+
+class FoodDetailView(DetailView):
+    model = Food
+    template_name = 'food/food_detatils.html'
+    context_object_name = 'food'
+
+
+class FoodDeleteView(DeleteView):
+    model = Food
+    template_name = 'food/food_delete.html'
+    success_url = 'food.html'
 
 
 def foods(request):
